@@ -65,47 +65,51 @@ const HeroUIToolbar: React.FC<HeroUIToolbarProps> = ({
 
       {/* 右侧：设备切换 + 分享按钮 */}
       <div className="flex items-center space-x-3">
-        {/* 设备切换 */}
-        <div className="flex items-center space-x-1">
-          <button
-            onClick={() => setActiveDevice('desktop')}
-            className={`p-2 rounded-md ${
-              activeDevice === 'desktop' 
-                ? 'bg-gray-100 text-gray-900' 
-                : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
-            }`}
-            title="Desktop View"
-          >
-            <Icon icon="lucide:monitor" width={18} height={18} />
-          </button>
-          
-          <button
-            onClick={() => setActiveDevice('tablet')}
-            className={`p-2 rounded-md ${
-              activeDevice === 'tablet' 
-                ? 'bg-gray-100 text-gray-900' 
-                : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
-            }`}
-            title="Tablet View"
-          >
-            <Icon icon="lucide:tablet" width={18} height={18} />
-          </button>
-          
-          <button
-            onClick={() => setActiveDevice('mobile')}
-            className={`p-2 rounded-md ${
-              activeDevice === 'mobile' 
-                ? 'bg-gray-100 text-gray-900' 
-                : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
-            }`}
-            title="Mobile View"
-          >
-            <Icon icon="lucide:smartphone" width={18} height={18} />
-          </button>
-        </div>
+        {/* 设备切换 - 只在 Preview 模式显示 */}
+        {activeView === 'preview' && (
+          <>
+            <div className="flex items-center space-x-1">
+              <button
+                onClick={() => setActiveDevice('desktop')}
+                className={`p-2 rounded-md ${
+                  activeDevice === 'desktop' 
+                    ? 'bg-gray-100 text-gray-900' 
+                    : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
+                }`}
+                title="Desktop View"
+              >
+                <Icon icon="lucide:monitor" width={18} height={18} />
+              </button>
+              
+              <button
+                onClick={() => setActiveDevice('tablet')}
+                className={`p-2 rounded-md ${
+                  activeDevice === 'tablet' 
+                    ? 'bg-gray-100 text-gray-900' 
+                    : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
+                }`}
+                title="Tablet View"
+              >
+                <Icon icon="lucide:tablet" width={18} height={18} />
+              </button>
+              
+              <button
+                onClick={() => setActiveDevice('mobile')}
+                className={`p-2 rounded-md ${
+                  activeDevice === 'mobile' 
+                    ? 'bg-gray-100 text-gray-900' 
+                    : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
+                }`}
+                title="Mobile View"
+              >
+                <Icon icon="lucide:smartphone" width={18} height={18} />
+              </button>
+            </div>
 
-        {/* 分隔线 */}
-        <div className="h-6 w-px bg-gray-300"></div>
+            {/* 分隔线 */}
+            <div className="h-6 w-px bg-gray-300"></div>
+          </>
+        )}
 
         {/* 分享按钮 */}
         <button

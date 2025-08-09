@@ -32,7 +32,7 @@ const AffineHeroDashboard: React.FC = () => {
     switch (activeView) {
       case 'preview':
         return (
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 h-full overflow-y-auto">
             <h1 className="text-2xl font-semibold text-foreground mb-4">Dashboard</h1>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
               <StatsCard title="Total Revenue" value="$45,231" change={20.1} icon="lucide:dollar-sign" />
@@ -81,7 +81,7 @@ const AffineHeroDashboard: React.FC = () => {
                   onChange={setCodeContent}
                   language={currentLanguage}
                   theme="dark"
-                  height="calc(100vh - 160px)"
+                  height="100%"
                 />
               </div>
             </div>
@@ -89,7 +89,7 @@ const AffineHeroDashboard: React.FC = () => {
         );
       case 'sandbox':
         return (
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 h-full overflow-y-auto">
             <h1 className="text-2xl font-semibold text-foreground mb-4">Sandbox</h1>
             <div className="bg-content1 p-8 rounded-lg shadow text-center">
               <h2 className="text-lg font-semibold mb-2">Sandbox View</h2>
@@ -104,12 +104,12 @@ const AffineHeroDashboard: React.FC = () => {
 
   return (
     <HeroUIProvider>
-      <div className="flex-1 flex flex-col overflow-hidden" data-heroui="true">
+      <div className="w-full h-screen flex flex-col" data-heroui="true">
         <HeroUIToolbar 
           activeView={activeView} 
           onActiveViewChange={setActiveView} 
         />
-        <main className="flex-1 overflow-x-hidden overflow-y-auto bg-background">
+        <main className="flex-1 bg-background" style={{ height: 'calc(100vh - 60px)' }}>
           {renderContent()}
         </main>
       </div>
