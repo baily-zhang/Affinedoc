@@ -1,0 +1,102 @@
+/* VSCode Dark Theme Override Styles */
+
+/* Override any global styles that might interfere with our editor - but exclude code editor */
+[data-heroui="true"] .flex.h-full .file-tree-container,
+[data-heroui="true"] .flex.h-full .editor-tab-bar {
+  color: inherit !important;
+}
+
+/* TEMPORARILY DISABLED - Testing pure oneDark theme */
+/*
+[data-heroui="true"] .code-editor-container .cm-editor,
+[data-heroui="true"] .code-editor-container .cm-content,
+[data-heroui="true"] .code-editor-container .cm-content * {
+  color: unset !important;
+}
+
+.codemirror-wrapper,
+.codemirror-wrapper *,
+.codemirror-wrapper .cm-editor,
+.codemirror-wrapper .cm-editor *,
+.codemirror-wrapper .cm-content,
+.codemirror-wrapper .cm-content * {
+  color: unset !important;
+}
+
+.codemirror-wrapper .cm-editor.cm-theme-dark {
+  color: unset !important;
+  background: unset !important;
+}
+*/
+
+/* File Tree Specific Styles */
+.file-tree-container {
+  background-color: #1e1e1e !important;
+  color: #cccccc !important;
+}
+
+.file-tree-container .iconify {
+  color: inherit !important;
+}
+
+.file-tree-item {
+  color: #cccccc !important;
+}
+
+.file-tree-item:hover {
+  background-color: #2d2d30 !important;
+}
+
+.file-tree-item.selected {
+  background-color: #0078d4 !important;
+  color: #ffffff !important;
+}
+
+.file-tree-explorer-label {
+  color: #6c6c6c !important;
+  text-transform: uppercase !important;
+  font-size: 0.75rem !important;
+}
+
+/* Tab Bar Styles */
+.editor-tab-bar {
+  background-color: #2d2d30 !important;
+  border-bottom: 1px solid #3c3c3c !important;
+  color: #cccccc !important;
+}
+
+/* Code Editor Container - Let CodeMirror handle the colors */
+.code-editor-container {
+  /* Don't override background, let oneDark theme handle it */
+}
+
+/* TEMPORARILY DISABLED - Testing pure oneDark theme */
+/*
+[data-heroui="true"] .code-editor-container .cm-editor {
+  background-color: #1e1e1e !important;
+}
+
+[data-heroui="true"] .code-editor-container .cm-content {
+  background-color: #1e1e1e !important;
+}
+
+[data-heroui="true"] .code-editor-container .cm-gutters {
+  background-color: #252526 !important;
+  color: #858585 !important;
+}
+*/
+
+/* Remove this - let oneDark theme handle all colors */
+
+/* Remove all color overrides - let oneDark theme handle everything */
+
+/* Ensure icons in file tree maintain their colors */
+[data-heroui="true"] .file-tree-container .iconify[class*="vscode-icons"] {
+  color: unset !important;
+}
+
+/* Reset any global color overrides in the code editor area */
+[data-heroui="true"] .flex.h-full .w-80,
+[data-heroui="true"] .flex.h-full .flex-1 {
+  color: unset !important;
+}

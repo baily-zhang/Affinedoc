@@ -1,8 +1,25 @@
 import React, { useState } from 'react';
 import { Icon } from "@iconify/react";
 
-const HeroUIToolbar: React.FC = () => {
-  const [activeView, setActiveView] = useState<'preview' | 'code' | 'sandbox'>('preview');
+interface HeroUIToolbarProps {
+  activeView?: 'preview' | 'code' | 'sandbox';
+  onActiveViewChange?: (view: 'preview' | 'code' | 'sandbox') => void;
+}
+
+const HeroUIToolbar: React.FC<HeroUIToolbarProps> = ({ 
+  activeView: controlledActiveView, 
+  onActiveViewChange 
+}) => {
+  const [internalActiveView, setInternalActiveView] = useState<'preview' | 'code' | 'sandbox'>('preview');
+  
+  const activeView = controlledActiveView ?? internalActiveView;
+  const setActiveView = (view: 'preview' | 'code' | 'sandbox') => {
+    if (onActiveViewChange) {
+      onActiveViewChange(view);
+    } else {
+      setInternalActiveView(view);
+    }
+  };
   const [activeDevice, setActiveDevice] = useState<'desktop' | 'tablet' | 'mobile'>('desktop');
 
   return (
