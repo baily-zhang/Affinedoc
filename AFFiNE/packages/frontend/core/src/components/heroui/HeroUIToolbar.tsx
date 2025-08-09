@@ -4,13 +4,18 @@ import { Icon } from "@iconify/react";
 interface HeroUIToolbarProps {
   activeView?: 'preview' | 'code' | 'sandbox';
   onActiveViewChange?: (view: 'preview' | 'code' | 'sandbox') => void;
+  activeDevice?: 'desktop' | 'tablet' | 'mobile';
+  onActiveDeviceChange?: (device: 'desktop' | 'tablet' | 'mobile') => void;
 }
 
 const HeroUIToolbar: React.FC<HeroUIToolbarProps> = ({ 
   activeView: controlledActiveView, 
-  onActiveViewChange 
+  onActiveViewChange,
+  activeDevice: controlledActiveDevice,
+  onActiveDeviceChange
 }) => {
   const [internalActiveView, setInternalActiveView] = useState<'preview' | 'code' | 'sandbox'>('preview');
+  const [internalActiveDevice, setInternalActiveDevice] = useState<'desktop' | 'tablet' | 'mobile'>('desktop');
   
   const activeView = controlledActiveView ?? internalActiveView;
   const setActiveView = (view: 'preview' | 'code' | 'sandbox') => {
@@ -20,7 +25,15 @@ const HeroUIToolbar: React.FC<HeroUIToolbarProps> = ({
       setInternalActiveView(view);
     }
   };
-  const [activeDevice, setActiveDevice] = useState<'desktop' | 'tablet' | 'mobile'>('desktop');
+  
+  const activeDevice = controlledActiveDevice ?? internalActiveDevice;
+  const setActiveDevice = (device: 'desktop' | 'tablet' | 'mobile') => {
+    if (onActiveDeviceChange) {
+      onActiveDeviceChange(device);
+    } else {
+      setInternalActiveDevice(device);
+    }
+  };
 
   return (
     <div className="flex items-center justify-between bg-white border-b px-4 py-2">
