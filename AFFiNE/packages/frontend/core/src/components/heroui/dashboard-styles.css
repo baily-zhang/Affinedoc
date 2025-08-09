@@ -1,0 +1,321 @@
+/* Dashboard styles for HeroUI integration */
+
+/* Reset AFFiNE background for dashboard area */
+.affine-page-viewport {
+  background: rgb(248 250 252) !important;
+}
+
+/* Success/Danger colors for change indicators */
+.text-success {
+  color: rgb(34 197 94) !important;
+}
+
+.text-danger {
+  color: rgb(239 68 68) !important;
+}
+
+/* Background colors */
+.bg-content2 {
+  background-color: rgb(244 244 245) !important;
+}
+
+.bg-background {
+  background-color: rgb(248 250 252) !important;
+}
+
+.bg-content1 {
+  background-color: rgb(255 255 255) !important;
+}
+
+/* Text colors and sizes */
+.text-default-500 {
+  color: rgb(115 115 115) !important;
+}
+
+.text-small {
+  font-size: 0.875rem !important;
+  line-height: 1.25rem !important;
+}
+
+.text-foreground {
+  color: rgb(0 0 0) !important;
+}
+
+/* 统计卡片数值颜色 */
+.text-2xl {
+  color: rgb(0 0 0) !important;
+}
+
+/* 标题颜色 */
+h1, h2, h3 {
+  color: rgb(0 0 0) !important;
+}
+
+/* Enhanced Card styles to override AFFiNE base styles */
+[data-slot="card"], 
+[data-heroui="true"] [data-slot="card"],
+[data-heroui] [data-slot="card"] {
+  background: white !important;
+  border-radius: 0.75rem !important;
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1) !important;
+  border: 1px solid rgb(229 231 235) !important;
+  display: block !important;
+  width: 100% !important;
+}
+
+[data-slot="card-body"],
+[data-heroui="true"] [data-slot="card-body"],
+[data-heroui] [data-slot="card-body"] {
+  padding: 1.5rem !important;
+  display: block !important;
+}
+
+/* 强制所有HeroUI卡片显示 */
+.heroui-card,
+[data-component="card"] {
+  background: white !important;
+  border-radius: 0.75rem !important;
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1) !important;
+  border: 1px solid rgb(229 231 235) !important;
+  padding: 0 !important;
+}
+
+/* Ensure icons are visible */
+.iconify {
+  display: inline-block !important;
+  color: rgb(75 85 99) !important;
+}
+
+/* Grid layout fixes */
+.grid {
+  display: grid !important;
+}
+
+.grid-cols-1 {
+  grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
+}
+
+.gap-4 {
+  gap: 1rem !important;
+}
+
+@media (min-width: 768px) {
+  .md\:grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+}
+
+@media (min-width: 1024px) {
+  .lg\:grid-cols-4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  }
+  
+  .lg\:grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+}
+
+/* Flex utilities */
+.flex {
+  display: flex !important;
+}
+
+.flex-col {
+  flex-direction: column !important;
+}
+
+.flex-1 {
+  flex: 1 1 0% !important;
+}
+
+.items-center {
+  align-items: center !important;
+}
+
+.justify-between {
+  justify-content: space-between !important;
+}
+
+.overflow-hidden {
+  overflow: hidden !important;
+}
+
+/* 工具栏样式 */
+.space-x-1 > * + * {
+  margin-left: 0.25rem !important;
+}
+
+.space-x-2 > * + * {
+  margin-left: 0.5rem !important;
+}
+
+.space-x-3 > * + * {
+  margin-left: 0.75rem !important;
+}
+
+.bg-gray-50:hover {
+  background-color: rgb(249 250 251) !important;
+}
+
+.bg-gray-100 {
+  background-color: rgb(243 244 246) !important;
+}
+
+.text-gray-600 {
+  color: rgb(75 85 99) !important;
+}
+
+.text-gray-900 {
+  color: rgb(17 24 39) !important;
+}
+
+.bg-blue-600 {
+  background-color: rgb(37 99 235) !important;
+}
+
+.bg-blue-700:hover {
+  background-color: rgb(29 78 216) !important;
+}
+
+.text-white {
+  color: rgb(255 255 255) !important;
+}
+
+.text-sm {
+  font-size: 0.875rem !important;
+  line-height: 1.25rem !important;
+}
+
+.bg-gray-300 {
+  background-color: rgb(209 213 219) !important;
+}
+
+.w-px {
+  width: 1px !important;
+}
+
+.h-6 {
+  height: 1.5rem !important;
+}
+
+/* Spacing */
+.p-2 {
+  padding: 0.5rem !important;
+}
+
+.px-4 {
+  padding-left: 1rem !important;
+  padding-right: 1rem !important;
+}
+
+.py-8 {
+  padding-top: 2rem !important;
+  padding-bottom: 2rem !important;
+}
+
+.mb-2 {
+  margin-bottom: 0.5rem !important;
+}
+
+.mb-4 {
+  margin-bottom: 1rem !important;
+}
+
+.mb-8 {
+  margin-bottom: 2rem !important;
+}
+
+.ml-1 {
+  margin-left: 0.25rem !important;
+}
+
+.mt-2 {
+  margin-top: 0.5rem !important;
+}
+
+/* Typography */
+.text-2xl {
+  font-size: 1.5rem !important;
+  line-height: 2rem !important;
+}
+
+.text-lg {
+  font-size: 1.125rem !important;
+  line-height: 1.75rem !important;
+}
+
+.font-semibold {
+  font-weight: 600 !important;
+}
+
+/* Border radius */
+.rounded-lg {
+  border-radius: 0.5rem !important;
+}
+
+.rounded-full {
+  border-radius: 9999px !important;
+}
+
+/* Shadow */
+.shadow {
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1) !important;
+}
+
+/* Border */
+.border {
+  border-width: 1px !important;
+  border-style: solid !important;
+  border-color: rgb(229 231 235) !important;
+}
+
+.border-b {
+  border-bottom-width: 1px !important;
+  border-bottom-style: solid !important;
+  border-bottom-color: rgb(229 231 235) !important;
+}
+
+/* Background colors for cards */
+.bg-white {
+  background-color: rgb(255 255 255) !important;
+}
+
+/* Padding */
+.p-6 {
+  padding: 1.5rem !important;
+}
+
+.px-6 {
+  padding-left: 1.5rem !important;
+  padding-right: 1.5rem !important;
+}
+
+.py-4 {
+  padding-top: 1rem !important;
+  padding-bottom: 1rem !important;
+}
+
+/* Max width and centering */
+.max-w-7xl {
+  max-width: 80rem !important;
+}
+
+.mx-auto {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* Responsive padding */
+@media (min-width: 640px) {
+  .sm\:px-6 {
+    padding-left: 1.5rem !important;
+    padding-right: 1.5rem !important;
+  }
+}
+
+@media (min-width: 1024px) {
+  .lg\:px-8 {
+    padding-left: 2rem !important;
+    padding-right: 2rem !important;
+  }
+}

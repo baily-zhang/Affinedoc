@@ -1,0 +1,33 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+/* HeroUI theme colors */
+:root {
+  --heroui-success: 17 24 39;
+  --heroui-success-foreground: 240 253 244;
+  --heroui-danger: 220 38 38;
+  --heroui-danger-foreground: 254 242 242;
+  --heroui-content2: 244 244 245;
+}
+
+.text-success {
+  color: rgb(34 197 94);
+}
+
+.text-danger {
+  color: rgb(239 68 68);
+}
+
+.bg-content2 {
+  background-color: rgb(244 244 245);
+}
+
+.text-default-500 {
+  color: rgb(115 115 115);
+}
+
+.text-small {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
