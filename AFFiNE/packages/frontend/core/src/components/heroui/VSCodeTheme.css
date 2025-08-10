@@ -100,3 +100,54 @@
 [data-heroui="true"] .flex.h-full .flex-1 {
   color: unset !important;
 }
+
+/* Force terminal to fill container and hide scrollbars */
+[data-heroui="true"] main {
+  overflow: hidden !important;
+}
+
+/* Fix AFFiNE layout containers for terminal view */
+[data-heroui="true"] .route-container_root_3VaRRr,
+[data-heroui="true"] .route-container_header_3VaRRr,  
+[data-heroui="true"] .route-container_body_3VaRRr {
+  height: 100% !important;
+  overflow: hidden !important;
+}
+
+[data-heroui="true"] .scrollbar-scrollableContainerRoot__1pw1bl8,
+[data-heroui="true"] .affine-page-viewport,
+[data-heroui="true"] .detail-page_mainContainer__1m87dy8,
+[data-heroui="true"] .detail-page_editorContainer__1m87dy8,
+[data-heroui="true"] .scrollbar_scrollableViewport__1pw1bl8 {
+  height: 100% !important;
+  overflow: hidden !important;
+}
+
+/* Make sure all flex containers take full height */
+[data-heroui="true"] .flex-1.bg-background {
+  height: calc(100vh - 60px) !important;
+}
+
+/* Ensure main content area fills completely */
+[data-heroui="true"] .flex-1.h-screen.flex-col {
+  height: 100vh !important;
+}
+
+[data-heroui="true"] .w-full.h-full {
+  height: calc(100vh - 60px) !important;
+}
+
+[data-heroui="true"] .xterm {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+[data-heroui="true"] .xterm-viewport {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+[data-heroui="true"] .xterm-screen {
+  width: 100% !important;
+  height: 100% !important;
+}

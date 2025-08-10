@@ -5,6 +5,7 @@ import SalesChart from './SalesChart';
 import HeroUIToolbar from './HeroUIToolbar';
 import CodeMirrorEditor from './CodeMirrorEditor';
 import FileTree from './FileTree';
+import DeploymentTerminal from './DeploymentTerminal';
 import { loadFileContent, getFileLanguage } from './FileLoader';
 import './VSCodeTheme.css';
 
@@ -14,6 +15,8 @@ const AffineHeroDashboard: React.FC = () => {
   const [selectedFile, setSelectedFile] = useState<string | null>('src/components/heroui/AffineHeroDashboard.tsx');
   const [codeContent, setCodeContent] = useState('');
   const [currentLanguage, setCurrentLanguage] = useState<'javascript' | 'typescript' | 'css' | 'html' | 'json'>('typescript');
+  const [deploymentStatus, setDeploymentStatus] = useState<'idle' | 'deploying' | 'success' | 'error'>('idle');
+  const [hasInitializedDeployment, setHasInitializedDeployment] = useState(false);
 
   const handleFileSelect = async (filePath: string) => {
     setSelectedFile(filePath);
@@ -28,6 +31,17 @@ const AffineHeroDashboard: React.FC = () => {
       handleFileSelect(selectedFile);
     }
   }, [selectedFile]);
+
+  // Auto-start deployment when first switching to sandbox view
+  useEffect(() => {
+    if (activeView === 'sandbox' && !hasInitializedDeployment && deploymentStatus === 'idle') {
+      setHasInitializedDeployment(true);
+      // Small delay to ensure terminal is mounted
+      setTimeout(() => {
+        setDeploymentStatus('deploying');
+      }, 100);
+    }
+  }, [activeView, hasInitializedDeployment, deploymentStatus]);
 
   const getDeviceContainerStyle = () => {
     const baseStyle = {
@@ -178,12 +192,13 @@ const AffineHeroDashboard: React.FC = () => {
         );
       case 'sandbox':
         return (
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 h-full overflow-y-auto">
-            <h1 className="text-2xl font-semibold text-foreground mb-4">Sandbox</h1>
-            <div className="bg-content1 p-8 rounded-lg shadow text-center">
-              <h2 className="text-lg font-semibold mb-2">Sandbox View</h2>
-              <p>This is where the sandbox/terminal functionality will be implemented</p>
-            </div>
+          <div className="h-full w-full" style={{ height: 'calc(100vh - 60px)', overflow: 'hidden' }}>
+            <DeploymentTerminal 
+              isDeploying={deploymentStatus === 'deploying'}
+              deploymentStatus={deploymentStatus}
+              onDeploymentComplete={() => setDeploymentStatus('success')}
+              onDeploymentError={() => setDeploymentStatus('error')}
+            />
           </div>
         );
       default:
@@ -200,7 +215,7 @@ const AffineHeroDashboard: React.FC = () => {
           activeDevice={activeDevice}
           onActiveDeviceChange={setActiveDevice}
         />
-        <main className="flex-1 bg-background" style={{ height: 'calc(100vh - 60px)' }}>
+        <main className="flex-1 bg-background" style={{ height: 'calc(100vh - 60px)', overflow: 'hidden', position: 'relative' }}>
           {renderContent()}
         </main>
       </div>
